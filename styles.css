@@ -1,0 +1,130 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #0056b3;
+}
+
+.button-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px;
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+    text-wrap: none;
+    width: 11em;
+}
+
+input[type="text"], input[type="number"] {
+    width: 60%;
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:disabled {
+    background-color: #c0c0c0;
+    cursor: not-allowed;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.remove-btn {
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.action-button{
+    margin-bottom: 10px;
+}
+
+#results {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+#results table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#results table, th, td {
+    border: 1px solid #ddd;
+}
+
+#results th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+#results th {
+    background-color: #007bff;
+    color: white;
+}
+
+#results .highlight {
+    font-weight: bold;
+    color: #0056b3;
+}

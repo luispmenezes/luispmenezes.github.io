@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Sport Time Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Multi-Sport Time Calculator</h1>
+    <div class="button-container">
+        <button type="button" onclick="addLeg('swim')">🏊‍♂️ Swim</button>
+        <button type="button" onclick="addLeg('bike')">🚴‍♂️ Bike</button>
+        <button type="button" onclick="addLeg('run')">🏃‍♂️ Run</button>
+    </div>
+    <form id="sportForm">
+        <div id="legsContainer"></div>
+        <button type="submit" id="calculateButton" class="action-button" disabled>Calculate</button>
+        <button type="button" id="resetButton" class="action-button" disabled onclick="resetForm()">Reset</button>
+    </form>
+    <div id="results"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
