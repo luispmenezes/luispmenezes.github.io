@@ -53,7 +53,6 @@ function addLeg(type) {
 
 function addTransition() {
     const transitionId = legCount;
-    console.log('Adding transition with ID:', transitionId);
 
     const transitionContainer = document.createElement('div');
     transitionContainer.className = 'input-group transition';
@@ -69,16 +68,12 @@ function addTransition() {
 }
 
 function removeLeg(legId) {
-    console.log(`Removing leg with ID: ${legId}`);
-
     // Remove the leg container
     const legSelector = `input[name^='leg'][name$='-${legId}-distance']`;
     const legContainer = document.querySelector(legSelector)?.parentElement;
     if (!legContainer) {
-        console.log('Leg container not found');
         return; // If the leg doesn't exist, do nothing
     }
-    console.log('Removing leg container');
     legContainer.remove();
 
     // Remove the associated transition
@@ -96,8 +91,6 @@ function removeLeg(legId) {
 }
 
 function removeTransitionsAfterLeg(legId) {
-    console.log('Removing transitions after leg with ID:', legId);
-
     // Determine the index of the leg in the model
     const legIndex = legsModel.findIndex(l => l.id === legId);
 
@@ -106,7 +99,6 @@ function removeTransitionsAfterLeg(legId) {
         const transitionSelector = `input[name^='leg-transition-${legCount - index}-time']`;
         const transitionContainer = document.querySelector(transitionSelector)?.parentElement;
         if (transitionContainer) {
-            console.log('Removing transition with ID:', legCount - index);
             transitionContainer.remove();
         }
     });
@@ -142,8 +134,6 @@ function calculateMultiSportTime(legs) {
         let timeInSeconds = 0;
         let pace = 0;
 
-        console.log(leg)
-
         if (leg.type === 'swim') {
             const [min, sec] = leg.pace.split(':').map(Number);
             pace = min * 60 + sec; // Pace in seconds per 100m
@@ -153,9 +143,11 @@ function calculateMultiSportTime(legs) {
             pace = min * 60 + sec; // Pace in seconds per km
             timeInSeconds = leg.distance * pace; // Convert pace to seconds per distance
         } else if (leg.type === 'bike') {
-            if (leg.pace !== 0) {
+            if (leg.pace !== '0') {
                 pace = 3600 / leg.pace; // Pace in seconds per km
-                timeInSeconds = leg.distance * pace;
+                if (leg.distance !== '0'){
+                    timeInSeconds = leg.distance * pace;
+                }
             }
         } else if (leg.type === 'transition') {
             const [minutes, seconds] = leg.time.split(':').map(Number);
